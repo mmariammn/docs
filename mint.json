@@ -1,5 +1,5 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
+  "$schema": "api-reference/endpoint/Api-swagger.json",
   "name": "Starter Kit",
   "logo": {
     "dark": "/logo/dark.svg",
