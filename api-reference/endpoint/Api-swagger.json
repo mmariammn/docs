@@ -10,6 +10,59 @@
         },
         "version": "v1.0"
     },
+    "UpdatePipelineSchema": {
+        "description": "",
+        "required": [
+          "id",
+          "name",
+          "handle",
+          "isDefault",
+          "type",
+          "config"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "The unique identifier of the pipeline.",
+            "type": "string"
+          },
+          "name": {
+            "description": "The name of the pipeline, up to 50 characters.",
+            "type": "string"
+          },
+          "handle": {
+            "description": "The handle of the pipeline, alphanumeric and underscores only, up to 50 characters.",
+            "type": "string"
+          },
+          "isDefault": {
+            "description": "Indicates if the pipeline is the default one.",
+            "type": "boolean"
+          },
+          "type": {
+            "description": "The type of the pipeline.",
+            "type": "string",
+            "enum": [
+              "ABR_VIDEO",
+              "VIDEO",
+              "IMAGE"
+            ]
+          },
+          "config": {
+            "description": "The updated configuration of the pipeline, specific to the pipeline type.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/VideoUpdateConfig"
+              },
+              {
+                "$ref": "#/components/schemas/ImageUpdateConfig"
+              },
+              {
+                "$ref": "#/components/schemas/M3u8UpdateConfig"
+              }
+            ]
+          }
+        }
+      },
     "paths": {
         "/api/Activity/Recent": {
             "get": {
